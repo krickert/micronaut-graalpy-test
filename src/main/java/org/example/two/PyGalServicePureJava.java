@@ -7,6 +7,7 @@
 package org.example.two;
 
 import jakarta.inject.Singleton;
+import org.example.shared.GraalPyContext;
 import org.graalvm.polyglot.Value;
 
 import java.util.stream.IntStream;

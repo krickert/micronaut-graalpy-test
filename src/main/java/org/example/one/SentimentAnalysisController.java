@@ -4,12 +4,14 @@
  * Licensed under the Universal Permissive License v 1.0 as shown at https://opensource.org/license/UPL.
  */
 
-package org.example;
+package org.example.one;
 
-import io.micronaut.http.annotation.*;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
 import io.micronaut.views.View;
+
 import java.util.Map;
 
 @Controller // ①

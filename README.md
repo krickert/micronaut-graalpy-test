@@ -241,7 +241,7 @@ package org.example;
 import io.micronaut.context.annotation.Bean;
 import org.graalvm.polyglot.Value;
 import java.util.Map;
-import static org.example.GraalPyContext.PYTHON;
+import static org.example.one.GraalPyContext.PYTHON;
 
 @Bean
 public class SentimentAnalysis {
@@ -383,10 +383,10 @@ import java.util.Map;
 @Controller // ①
 public class SentimentAnalysisController {
 
-    private final SentimentAnalysis sentimentAnalysis;
+    private final SentimentAnalysis deepseeker;
 
-    SentimentAnalysisController(SentimentAnalysis sentimentAnalysis) { // ②
-        this.sentimentAnalysis = sentimentAnalysis;
+    SentimentAnalysisController(SentimentAnalysis deepseeker) { // ②
+        this.deepseeker = deepseeker;
     }
 
     @Get // ③
@@ -398,7 +398,7 @@ public class SentimentAnalysisController {
     @Get(value = "/analyze") // ⑤
     @ExecuteOn(TaskExecutors.BLOCKING) // ⑥
     public Map<String, Double> answer(String text) {
-        return sentimentAnalysis.getPolarityScores(text); // ⑦
+        return deepseeker.getPolarityScores(text); // ⑦
     }
 }
 ```
@@ -496,7 +496,7 @@ For the case that also a native executable has to be generated, create a proxy c
 `src/main/resources/META-INF/native-image/proxy-config.json`
 ```json
 [
-  ["org.example.SentimentIntensityAnalyzer"]
+  ["org.example.one.DeekseekChat"]
 ]
 ```
 

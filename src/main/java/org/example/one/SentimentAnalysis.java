@@ -4,12 +4,13 @@
  * Licensed under the Universal Permissive License v 1.0 as shown at https://opensource.org/license/UPL.
  */
 
-package org.example;
+package org.example.one;
 
 import io.micronaut.context.annotation.Bean;
+import org.example.shared.GraalPyContext;
 import org.graalvm.polyglot.Value;
+
 import java.util.Map;
-import static org.example.GraalPyContext.PYTHON;
 
 @Bean
 public class SentimentAnalysis {
@@ -17,7 +18,7 @@ public class SentimentAnalysis {
     private final SentimentIntensityAnalyzer sentimentIntensityAnalyzer;
 
     public SentimentAnalysis(GraalPyContext context) {
-        Value value = context.get().eval(PYTHON, """
+        Value value = context.get().eval("python", """
                 from vader_sentiment.vader_sentiment import SentimentIntensityAnalyzer
                 SentimentIntensityAnalyzer() # ①
                 """);

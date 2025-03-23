@@ -4,7 +4,7 @@
  * Licensed under the Universal Permissive License v 1.0 as shown at https://opensource.org/license/UPL.
  */
 
-package org.example;
+package org.example.one;
 
 import java.util.Map;
 

@@ -7,6 +7,7 @@
 package org.example.two;
 
 import jakarta.inject.Singleton;
+import org.example.shared.GraalPyContext;
 
 @Singleton
 public class PyGalServicePurePython implements PyGalService {
